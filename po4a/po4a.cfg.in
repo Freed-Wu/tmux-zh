@@ -1,0 +1,8 @@
+[po4a_langs] zh_CN @LANG@
+[po4a_paths] po4a/$master.pot $lang:@CMAKE_SOURCE_DIR@/po4a/$lang/$master.po
+[options] opt:"-vk0 -Mutf-8"
+[po4a_alias:markdown] text opt:"-omarkdown -oyfm_keys"
+[po4a_alias:man] man opt:"-ounknown_macros=translate_each"
+
+[type: man] tmux-prefix/src/tmux/tmux.1 $lang:$lang/$lang/man1/tmux.1 \
+            add_$lang:@CMAKE_SOURCE_DIR@/po4a/$lang/tmux.1.roff

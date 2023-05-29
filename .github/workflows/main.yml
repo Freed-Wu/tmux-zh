@@ -1,0 +1,58 @@
+---
+"on":
+  push:
+    paths-ignore:
+      - "**.md"
+  pull_request:
+    paths-ignore:
+      - "**.md"
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        ZH_TW:
+          - "ON"
+          - "OFF"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install po4a
+      - name: build
+        run: |
+          cmake -Bbuild -DZH_TW=${{matrix.ZH_TW}} -DHTML=ON
+          cmake --build build
+          cd build
+          cpack -G DEB
+      - uses: actions/upload-artifact@v3
+        if: "! startsWith(github.ref, 'refs/tags/')"
+        with:
+          path: |
+            build/*.deb
+      - uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          # body_path: build/CHANGELOG.md
+          files: |
+            build/*.deb
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Freed-Wu/update-aur-package@v1.0.9
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          tag_version_prefix: ""
+          package_name: tmux-zh_cn
+          ssh_private_key: ${{secrets.AUR_SSH_PRIVATE_KEY}}
+      - uses: Freed-Wu/update-aur-package@v1.0.9
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          tag_version_prefix: ""
+          package_name: tmux-zh_tw
+          ssh_private_key: ${{secrets.AUR_SSH_PRIVATE_KEY}}
