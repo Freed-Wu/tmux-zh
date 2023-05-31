@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 # cmake-format: off
-set(VERSION 3.3 CACHE STRING "version of tmux")
+set(VERSION 3.3a CACHE STRING "version of tmux")
 # cmake-format: on
 include(ExternalProject)
 ExternalProject_Add(
