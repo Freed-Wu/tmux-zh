@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 # cmake-format: off
-set(VERSION 3.3a CACHE STRING "version of tmux")
+set(VERSION 3.3 CACHE STRING "version of tmux")
 # cmake-format: on
 include(ExternalProject)
 ExternalProject_Add(
@@ -12,6 +12,14 @@ ExternalProject_Add(
   USES_TERMINAL_DOWNLOAD 1
   USES_TERMINAL_CONFIGURE 1
   USES_TERMINAL_BUILD 1)
+string(REGEX MATCH "[a-z]" patch ${VERSION})
+if(patch)
+  string(HEX ${patch} hex)
+  math(EXPR num "0x${hex} - 0x60")
+  string(REPLACE ${patch} .${num} NEW_VERSION ${VERSION})
+else()
+  set(NEW_VERSION ${VERSION}.0)
+endif()
 option(ZH_CN "generate simplified Chinese translation" ON)
 option(ZH_TW "generate taiwan traditional Chinese translation")
 if(ZH_CN)
@@ -33,7 +41,7 @@ if(HTML)
 endif()
 project(
   tmux-${LANG}
-  VERSION 3.3.0
+  VERSION ${NEW_VERSION}
   DESCRIPTION "translation of tmux man pages for ${LANG}"
   HOMEPAGE_URL "https://github.com/Freed-Wu/tmux-zh"
   LANGUAGES)
@@ -83,6 +91,7 @@ else()
 endif()
 
 set(CPACK_PACKAGE_CONTACT "https://github.com/Freed-Wu/tmux-zh/issues")
+set(CPACK_PACKAGE_FILE_NAME ${PROJECT_NAME}-${VERSION}-${CMAKE_SYSTEM_NAME})
 include(CPack)
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_RESOURCE_FILE_README "${CMAKE_CURRENT_SOURCE_DIR}/README.md")

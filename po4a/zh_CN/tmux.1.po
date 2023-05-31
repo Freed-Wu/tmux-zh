@@ -70,8 +70,6 @@ msgid ""
 "detached from a screen and continue running in the background, then later "
 "reattached."
 msgstr ""
-"E<.Nm> 是一个终端复用器：它可以在单个屏幕上创建、访问和控制多个终端。E<.Nm> "
-"可以从屏幕上分离并继续在后台运行，然后稍后重新连接。"
 
 #. type: Plain text
 #: tmux-prefix/src/tmux/tmux.1:54

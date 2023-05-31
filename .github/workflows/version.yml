@@ -14,10 +14,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Update version
-        run: |
-          scripts/git-commit.sh
-      - uses: ad-m/github-push-action@v0.6.0
         with:
           # https://github.com/orgs/community/discussions/25702
-          github_token: ${{secrets.GH_TOKEN}}
+          persist-credentials: false
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install po4a
+      - name: Update version
+        id: version
+        run: |
+          scripts/git-commit.sh
+        env:
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
+      - uses: Freed-Wu/translate-shell@main
+        with:
+          files: |
+            po4a/zh_CN/*.po
+      - name: Git commit
+        run: |
+          scripts/post-git-commit.sh
+        env:
+          VERSION: ${{ steps.version.outputs.VERSION }}
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
