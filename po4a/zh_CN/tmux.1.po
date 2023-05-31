@@ -1,8 +1,8 @@
-#
+# tmux.1
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.3a\n"
-"POT-Creation-Date: 2023-05-31 09:05+0000\n"
+"POT-Creation-Date: 2023-06-01 00:46+0800\n"
 "PO-Revision-Date: 2023-05-29 20:19+0800\n"
 "Last-Translator: Wu Zhenyu <wuzhenyu@ustc.edu>\n"
 "Language-Team: Wu Zhenyu <wuzhenyu@ustc.edu>\n"
@@ -6777,8 +6777,8 @@ msgstr ""
 #. type: Plain text
 #: tmux-prefix/src/tmux/tmux.1:3705
 msgid ""
-"For example, to set the E<.Ql clear> E<.Xr terminfo 5> entry to E<.Ql "
-"\\ee[H\\ee[2J> for all terminal types matching E<.Ql rxvt*>:"
+"For example, to set the E<.Ql clear> E<.Xr terminfo 5> entry to E<.Ql \\ee[H"
+"\\ee[2J> for all terminal types matching E<.Ql rxvt*>:"
 msgstr ""
 "例如，要将 E<.Ql clear> 的 E<.Xr terminfo 5> 条目设置为所有与 E<.Ql rxvt*> 匹"
 "配的终端类型的 E<.Ql \\ee[H\\ee[2J>，请执行以下操作："
@@ -8272,8 +8272,8 @@ msgid ""
 "E<.Op Ic on | off> E<.Xc> Allow programs in the pane to bypass E<.Nm> using "
 "a terminal escape sequence (\\eePtmux;...\\ee\\e\\e)."
 msgstr ""
-"E<.Op Ic on | off> E<.Xc> 允许面板中的程序使用终端转义序列 (\\eePtmux;..."
-"\\ee\\e\\e) 绕过E<.Nm>。"
+"E<.Op Ic on | off> E<.Xc> 允许面板中的程序使用终端转义序列 (\\eePtmux;...\\ee"
+"\\e\\e) 绕过E<.Nm>。"
 
 #. type: It
 #: tmux-prefix/src/tmux/tmux.1:4464
@@ -8287,8 +8287,8 @@ msgid ""
 "E<.Op Ic on | off> E<.Xc> Allow programs in the pane to change the window "
 "name using a terminal escape sequence (\\eek...\\ee\\e\\e)."
 msgstr ""
-"E<.Op Ic on | off> E<.Xc> 允许面板中的程序使用终端转义序列 (\\eek..."
-"\\ee\\e\\e) 更改窗口名称。"
+"E<.Op Ic on | off> E<.Xc> 允许面板中的程序使用终端转义序列 (\\eek...\\ee\\e"
+"\\e) 更改窗口名称。"
 
 #. type: It
 #: tmux-prefix/src/tmux/tmux.1:4470
