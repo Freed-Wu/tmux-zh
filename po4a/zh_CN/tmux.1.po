@@ -1583,7 +1583,7 @@ msgstr "E<.Ar target-session> 尝试的顺序如下："
 #. type: Plain text
 #: tmux-prefix/src/tmux/tmux.1:754
 msgid "A session ID prefixed with a $."
-msgstr "以 $ 为前缀的会话 ID。"
+msgstr "以 $ 为前缀的会话代号。"
 
 #. type: Plain text
 #: tmux-prefix/src/tmux/tmux.1:758
@@ -1870,9 +1870,9 @@ msgid ""
 "message>, E<.Ic list-sessions>, E<.Ic list-windows> or E<.Ic list-panes> "
 "commands."
 msgstr ""
-"会话、窗口和窗格都有一个唯一的 ID 编号；会话 ID 前缀为 E<.Ql $>，窗口前缀为 "
+"会话、窗口和窗格都有一个唯一的代号；会话代号前缀为 E<.Ql $>，窗口前缀为 "
 "E<.Ql @>，窗格前缀为 E<.Ql %>。它们是唯一的，并在 E<.Nm> 服务器中的会话、窗口"
-"或窗格的生命周期内保持不变。窗格 ID 通过 E<.Ev TMUX_PANE> 环境变量传递给窗格"
+"或窗格的生命周期内保持不变。窗格代号通过 E<.Ev TMUX_PANE> 环境变量传递给窗格"
 "的子进程。可以使用 E<.Ql 会话代号>、E<.Ql 窗口代号> 或 E<.Ql 窗格代号> 格式"
 "（请参见 E<.Sx 格式> 部分）和 E<.Ic display-message>、E<.Ic list-sessions>、"
 "E<.Ic list-windows> 或 E<.Ic list-panes> 命令显示 ID。"
@@ -4424,7 +4424,7 @@ msgstr ""
 "给出 E<.Fl N>）或 E<.Ar 持续时间> 毫秒后，指示器将关闭。如果未给出 E<.Fl d>，"
 "则使用 E<.Ic display-panes-time>。持续时间为零表示指示器保持到按下键为止。在"
 "指示器在屏幕上时，可以使用 E<.Ql 0> 到 E<.Ql 9> 键选择窗格，这将导致使用 E<."
-"Ql %%> 替换窗格 ID 的命令 E<.Ar 模板> 被执行。默认的 E<.Ar 模板> 是 \"select-"
+"Ql %%> 替换窗格代号的命令 E<.Ar 模板> 被执行。默认的 E<.Ar 模板> 是 \"select-"
 "pane -t '%%'\"。使用 E<.Fl b>，直到指示器关闭，其他命令不会被阻塞。"
 
 #. type: Tg
@@ -12768,7 +12768,7 @@ msgid ""
 "E<.Ar window-layout>.  The window's visible layout is E<.Ar window-visible-"
 "layout> and the window flags are E<.Ar window-flags>."
 msgstr ""
-"具有 ID E<.Ar 窗口代号> 的窗口的布局已更改。新布局为 E<.Ar 窗口布局>。窗口的"
+"具有代号 E<.Ar 窗口代号> 的窗口的布局已更改。新布局为 E<.Ar 窗口布局>。窗口的"
 "可见布局为 E<.Ar 窗口可见布局>，窗口标志为 E<.Ar 窗口标志>。"
 
 #. type: It
@@ -12907,7 +12907,7 @@ msgstr "Ic %unlinked-window-renamed Ar 窗口代号"
 msgid ""
 "The window with ID E<.Ar window-id>, which is not linked to the current "
 "session, was renamed."
-msgstr "未链接到当前会话的 ID 为 E<.Ar 窗口代号> 的窗口已被重命名。"
+msgstr "未链接到当前会话的代号为 E<.Ar 窗口代号> 的窗口已被重命名。"
 
 #. type: It
 #: tmux-prefix/src/tmux/tmux.1:6623
@@ -12954,7 +12954,7 @@ msgstr "Ic %window-renamed Ar 窗口代号 Ar 名称"
 #. type: Plain text
 #: tmux-prefix/src/tmux/tmux.1:6641
 msgid "The window with ID E<.Ar window-id> was renamed to E<.Ar name>."
-msgstr "ID 为 E<.Ar 窗口代号> 的窗口被重命名为 E<.Ar 名称>。"
+msgstr "代号为 E<.Ar 窗口代号> 的窗口被重命名为 E<.Ar 名称>。"
 
 #. type: Sh
 #: tmux-prefix/src/tmux/tmux.1:6642
