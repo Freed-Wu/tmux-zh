@@ -27,7 +27,7 @@ jobs:
           scripts/git-commit.sh
         env:
           GH_TOKEN: ${{secrets.GH_TOKEN}}
-      - uses: Freed-Wu/translate-shell@0.0.27
+      - uses: Freed-Wu/translate-shell@0.0.36
         with:
           files: |
             po4a/zh_CN/*.po
